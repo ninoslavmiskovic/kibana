@@ -42,7 +42,7 @@ export function OpenSearchPanel(props: OpenSearchPanelProps) {
           <h2>
             <FormattedMessage
               id="discover.topNav.openSearchPanel.openSearchTitle"
-              defaultMessage="Open saved Discover view"
+              defaultMessage="Open Saved Discover View"
             />
           </h2>
         </EuiTitle>

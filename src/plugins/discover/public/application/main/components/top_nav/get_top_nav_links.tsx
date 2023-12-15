@@ -65,7 +65,7 @@ export const getTopNavLinks = ({
       defaultMessage: 'New',
     }),
     description: i18n.translate('discover.localMenu.newSearchDescription', {
-      defaultMessage: 'New Search',
+      defaultMessage: 'New Discover view',
     }),
     run: () => services.locator.navigate({}),
     testId: 'discoverNewButton',
@@ -77,7 +77,7 @@ export const getTopNavLinks = ({
       defaultMessage: 'Save',
     }),
     description: i18n.translate('discover.localMenu.saveSearchDescription', {
-      defaultMessage: 'Save Search',
+      defaultMessage: 'Save Discover View',
     }),
     testId: 'discoverSaveButton',
     iconType: 'save',
@@ -100,7 +100,7 @@ export const getTopNavLinks = ({
       defaultMessage: 'Open',
     }),
     description: i18n.translate('discover.localMenu.openSavedSearchDescription', {
-      defaultMessage: 'Open Saved Search',
+      defaultMessage: 'Open Saved Discover View',
     }),
     testId: 'discoverOpenButton',
     run: () =>
@@ -116,7 +116,7 @@ export const getTopNavLinks = ({
       defaultMessage: 'Share',
     }),
     description: i18n.translate('discover.localMenu.shareSearchDescription', {
-      defaultMessage: 'Share Search',
+      defaultMessage: 'Share Discover View',
     }),
     testId: 'shareTopNavButton',
     run: async (anchorElement: HTMLElement) => {
@@ -189,7 +189,7 @@ export const getTopNavLinks = ({
           title:
             savedSearch.title ||
             i18n.translate('discover.localMenu.fallbackReportTitle', {
-              defaultMessage: 'Untitled discover search',
+              defaultMessage: 'Untitled discover saved view',
             }),
         },
         isDirty: !savedSearch.id || state.appState.hasChanged(),
@@ -207,7 +207,7 @@ export const getTopNavLinks = ({
       defaultMessage: 'Inspect',
     }),
     description: i18n.translate('discover.localMenu.openInspectorForSearchDescription', {
-      defaultMessage: 'Open Inspector for search',
+      defaultMessage: 'Open Inspector for saved Discover view',
     }),
     testId: 'openInspectorButton',
     run: () => {
