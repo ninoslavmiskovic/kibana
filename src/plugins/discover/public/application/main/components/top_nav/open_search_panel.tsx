@@ -42,7 +42,7 @@ export function OpenSearchPanel(props: OpenSearchPanelProps) {
           <h2>
             <FormattedMessage
               id="discover.topNav.openSearchPanel.openSearchTitle"
-              defaultMessage="Open search"
+              defaultMessage="Open saved Discover view"
             />
           </h2>
         </EuiTitle>
@@ -57,7 +57,7 @@ export function OpenSearchPanel(props: OpenSearchPanelProps) {
           noItemsMessage={
             <FormattedMessage
               id="discover.topNav.openSearchPanel.noSearchesFoundDescription"
-              defaultMessage="No matching searches found."
+              defaultMessage="No matching saved Discover view found."
             />
           }
           savedObjectMetaData={[
@@ -65,7 +65,7 @@ export function OpenSearchPanel(props: OpenSearchPanelProps) {
               type: SEARCH_OBJECT_TYPE,
               getIconForSavedObject: () => 'discoverApp',
               name: i18n.translate('discover.savedSearch.savedObjectName', {
-                defaultMessage: 'Saved search',
+                defaultMessage: 'Saved Discover views',
               }),
             },
           ]}
