@@ -290,6 +290,12 @@ export class Plugin implements InfraClientPluginClass {
           }),
           path: '/settings',
         },
+        {
+          id: 'assetDetails',
+          title: '', // Internal deep link, not shown in the UI. Title is dynamically set in the app.
+          path: '/detail',
+          visibleIn: [],
+        },
       ];
     };
 
@@ -314,11 +320,18 @@ export class Plugin implements InfraClientPluginClass {
 
         const isCloudEnv = !!pluginsSetup.cloud?.isCloudEnabled;
         const isServerlessEnv = pluginsSetup.cloud?.isServerlessEnabled || this.isServerlessEnv;
-        return renderApp(coreStart, { ...plugins }, pluginStart, this.config, params, {
-          kibanaVersion: this.kibanaVersion,
-          isCloudEnv,
-          isServerlessEnv,
-        });
+        return renderApp(
+          coreStart,
+          { ...plugins, licenseManagement: pluginsSetup.licenseManagement },
+          pluginStart,
+          this.config,
+          params,
+          {
+            kibanaVersion: this.kibanaVersion,
+            isCloudEnv,
+            isServerlessEnv,
+          }
+        );
       },
     });
 
