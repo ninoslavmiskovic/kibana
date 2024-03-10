@@ -10631,15 +10631,11 @@
               },
               {
                 "plugin": "logsShared",
-                "path": "x-pack/plugins/logs_shared/server/saved_objects/log_view/log_view_saved_object.ts"
+                "path": "x-pack/plugins/observability_solution/logs_shared/server/saved_objects/log_view/log_view_saved_object.ts"
               },
               {
                 "plugin": "graph",
                 "path": "x-pack/plugins/graph/server/saved_objects/graph_workspace.ts"
-              },
-              {
-                "plugin": "infra",
-                "path": "x-pack/plugins/infra/server/lib/sources/saved_object_type.ts"
               },
               {
                 "plugin": "lists",
@@ -10652,6 +10648,10 @@
               {
                 "plugin": "maps",
                 "path": "x-pack/plugins/maps/server/saved_objects/setup_saved_objects.ts"
+              },
+              {
+                "plugin": "infra",
+                "path": "x-pack/plugins/observability_solution/infra/server/lib/sources/saved_object_type.ts"
               },
               {
                 "plugin": "securitySolution",
