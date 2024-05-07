@@ -6,11 +6,15 @@
  */
 import { createGetterSetter } from '@kbn/kibana-utils-plugin/common';
 import type { CoreStart } from '@kbn/core/public';
-import { getESQLQueryColumns } from '@kbn/esql-utils';
 import { getLensAttributesFromSuggestion } from '@kbn/visualization-utils';
 import { IncompatibleActionError } from '@kbn/ui-actions-plugin/public';
 import { PresentationContainer } from '@kbn/presentation-containers';
-import { getESQLAdHocDataview, getIndexForESQLQuery } from '@kbn/esql-utils';
+import {
+  getESQLAdHocDataview,
+  getIndexForESQLQuery,
+  ENABLE_ESQL,
+  getESQLQueryColumns,
+} from '@kbn/esql-utils';
 import type { Datasource, Visualization } from '../../types';
 import type { LensPluginStartDependencies } from '../../plugin';
 import { suggestionsApi } from '../../lens_suggestions_api';
@@ -28,7 +32,7 @@ export const [getDatasourceMap, setDatasourceMap] = createGetterSetter<
 >('DatasourceMap', false);
 
 export function isCreateActionCompatible(core: CoreStart) {
-  return core.uiSettings.get('discover:enableESQL');
+  return core.uiSettings.get(ENABLE_ESQL);
 }
 
 export async function executeCreateAction({
@@ -69,7 +73,7 @@ export async function executeCreateAction({
   const abortController = new AbortController();
   const columns = await getESQLQueryColumns({
     esqlQuery: `from ${defaultIndex}`,
-    search: deps.data.search,
+    search: deps.data.search.search,
     signal: abortController.signal,
   });
 
