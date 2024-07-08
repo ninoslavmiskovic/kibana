@@ -16,12 +16,9 @@ fi
   GITHUB_TOKEN=$(vault_get kibanamachine github_token)
   export GITHUB_TOKEN
 
-  KIBANA_CI_GITHUB_TOKEN=$(vault_get kibana-ci-github github_token)
-  export KIBANA_CI_GITHUB_TOKEN
-
   KIBANA_DOCKER_USERNAME="$(vault_get container-registry username)"
   KIBANA_DOCKER_PASSWORD="$(vault_get container-registry password)"
-  if command -v docker &> /dev/null; then
+  if (command -v docker && docker version) &> /dev/null; then
     echo "$KIBANA_DOCKER_PASSWORD" | docker login -u "$KIBANA_DOCKER_USERNAME" --password-stdin docker.elastic.co
   fi
 }
