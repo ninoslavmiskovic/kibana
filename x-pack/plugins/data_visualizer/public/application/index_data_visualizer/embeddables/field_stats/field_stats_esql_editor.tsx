@@ -5,11 +5,9 @@
  * 2.0.
  */
 import React, { useRef, useState, useCallback } from 'react';
-import { TextBasedLangEditor } from '@kbn/text-based-languages/public';
+import { TextBasedLangEditor } from '@kbn/esql/public';
 import { EuiFlexItem } from '@elastic/eui';
 import type { AggregateQuery } from '@kbn/es-query';
-
-const expandCodeEditor = (status: boolean) => {};
 
 interface FieldStatsESQLEditorProps {
   canEditTextBasedQuery?: boolean;
@@ -47,9 +45,6 @@ export const FieldStatsESQLEditor = ({
           setQuery(q);
           prevQuery.current = q;
         }}
-        expandCodeEditor={expandCodeEditor}
-        isCodeEditorExpanded
-        hideMinimizeButton
         editorIsInline
         hideRunQueryText
         onTextLangQuerySubmit={onTextLangQuerySubmit}
